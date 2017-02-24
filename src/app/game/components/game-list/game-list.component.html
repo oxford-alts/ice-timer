@@ -1,0 +1,13 @@
+<div class="ui grid">
+    <div class="sixteen wide column">
+        <div class="ui segment">
+            <timer-game [game]="gameService.currentGame"></timer-game>
+        </div>
+    </div>
+    <div class="sixteen wide column" *ngFor="let game of gameService.futureGames">
+        <div class="ui dimmable dimmed segment">
+            <div class="ui active dimmer"></div>
+            <timer-game [game]="game"></timer-game>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,29 @@
+<div class="ui middle aligned grid">
+    <div class="center aligned row">
+        <div class="three wide column">
+            <h2 class="ui block header">
+                {{ previousGames }}
+                <div class="sub header">Previous Games</div>
+            </h2>
+        </div>
+        <div class="ten wide column">
+            <div class="ui big fluid icon buttons">
+                <button class="ui green button" *ngIf="!_gameService.isPlaying" (click)="_gameService.startCurrentGame()">
+                    <i class="play icon"></i>
+                </button>
+                <button class="ui orange button" *ngIf="_gameService.isPlaying" (click)="_gameService.pauseCurrentGame()">
+                    <i class="pause icon"></i>
+                </button>
+                <button class="ui grey button" (click)="_gameService.skipCurrentGame()">
+                    <i class="fast forward icon"></i>
+                </button>
+            </div>
+        </div>
+        <div class="three wide column">
+            <h2 class="ui block header">
+                {{ _gameService.timeRemaining | timer }}
+                <div class="sub header">Remaining</div>
+            </h2>
+        </div>
+    </div>
+</div>

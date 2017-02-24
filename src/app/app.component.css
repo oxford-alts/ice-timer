@@ -1,0 +1,9 @@
+.ui.main.container {
+    margin-top: 65px;
+}
+
+.grid > .divider,
+.grid > .row > .divider {
+    position: relative;
+    padding: 0 !important;
+}

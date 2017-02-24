@@ -1,0 +1,10 @@
+<div class="ui three column middle aligned stackable grid">
+    <div class="row">
+        <div class="column" *ngFor="let match of game?.matches; let last = last">
+            <timer-match-teams [firstTeam]="match.firstTeam" [secondTeam]="match.secondTeam"></timer-match-teams>
+        </div>
+    </div>
+    <div class="sixteen wide column" *ngIf="isCurrent">
+        <timer-game-manager></timer-game-manager>
+    </div>
+</div>

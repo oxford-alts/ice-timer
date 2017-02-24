@@ -1,1 +1,19 @@
 /* You can add global styles to this file, and also import other style files */
+
+body {
+    overflow: hidden;
+}
+
+body.inverted {
+    background: #1b1c1d;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.ui.empty.vertical.divider::before,
+.ui.empty.vertical.divider::after {
+    height: 100% !important;
+}
+
+.ui.active.dimmer {
+    background: rgba(0, 0, 0, 0.6);
+}
