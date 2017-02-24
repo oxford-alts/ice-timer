@@ -1,5 +1,5 @@
 <div class="ui grid">
-    <div class="sixteen wide column">
+    <div class="sixteen wide column" *ngIf="gameService.currentGame">
         <div class="ui segment">
             <timer-game [game]="gameService.currentGame"></timer-game>
         </div>

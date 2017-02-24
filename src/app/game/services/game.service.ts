@@ -12,6 +12,7 @@ export class GameService {
     public set totalTeams(teams:number) {
         this._totalTeams = teams;
     }
+    public gameDuration:number;
 
     private _currentGame:Game;
     private _isPlaying:boolean;
@@ -43,7 +44,9 @@ export class GameService {
         this.futureGames = [];
         this._totalGames = 0;
 
-        this._timeRemaining = 180;
+        this.gameDuration = 180;
+
+        this._timeRemaining = this.gameDuration;
     }
 
     public generateGames() {
@@ -53,7 +56,7 @@ export class GameService {
 
     public startCurrentGame() {
         this._isPlaying = true;
-        this._timeRemaining = 180;
+        this._timeRemaining = this.gameDuration;
 
         clearInterval(this._gameInterval);
         this._gameInterval = setInterval(() => {
@@ -77,12 +80,12 @@ export class GameService {
     private gameFinished() {
         clearInterval(this._gameInterval);
 
-        if (this._timeRemaining != 180) {
+        if (this._timeRemaining != this.gameDuration) {
             this._totalGames += 1;
         }
 
         this._isPlaying = false;
-        this._timeRemaining = 180;
+        this._timeRemaining = this.gameDuration;
 
         this.pastGames.push(this._currentGame);
         this._currentGame = this.futureGames.shift();
